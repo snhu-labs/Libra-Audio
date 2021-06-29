@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta charset="utf-8" />
+		<title>Libra: Teacher Dashboard</title>
+		<meta http-equiv="pragma" content="no-cache" />
+		<style>
+			@font-face {
+				font-family: 'icomoon';
+				src:  url('font/icomoon.eot?dh5xf9');
+				src:  url('font/icomoon.eot?dh5xf9#iefix') format('embedded-opentype'),
+				url('font/icomoon.ttf?dh5xf9') format('truetype'),
+				url('font/icomoon.woff?dh5xf9') format('woff');
+				font-weight: normal;
+				font-style: normal;
+				font-display: block;
+			}
+			@font-face {
+				font-family: 'MontserratRegular';
+				src: url('font/Montserrat-Regular.woff') format('woff'),
+				url('font/Montserrat-Regular.ttf') format('truetype');
+				font-weight: normal;
+				font-style: normal;
+				-webkit-font-smoothing: antialiased;
+			}
+			@font-face {
+				font-family: 'MontserratMedium';
+				src: url('font/Montserrat-Medium.ttf') format('truetype');
+				font-weight: normal;
+				font-style: normal;
+				-webkit-font-smoothing: antialiased;
+			}
+			@font-face {
+				font-family: 'MontserratSemiBold';
+				src: url('./font/Montserrat-SemiBold.woff') format('woff'),
+				url('./font/Montserrat-SemiBold.ttf') format('truetype');
+				font-weight: bold;
+				font-style: normal;
+				-webkit-font-smoothing: antialiased;
+			}
+			@font-face {
+				font-family: 'MontserratBold';
+				src: url('font/Montserrat-Bold.woff') format('woff'),
+				url('font/Montserrat-Bold.ttf') format('truetype');
+				font-weight: bolder;
+				font-style: normal;
+				-webkit-font-smoothing: antialiased;
+			}
+			body {
+				overflow: hidden;
+			}
+			.MainFrameStyle {
+				position: fixed;
+				left: 0px;
+				top: 0px;
+				width: 100vw;
+				height: 100vh;
+				overflow: hidden;		
+				background-image: url(./images/Libra_TeacherDashboard_BG.jpg);
+				background-size: cover;
+				background-repeat: no-repeat;
+			}
+			.TitleText {
+				position: fixed;
+				left: 22px;
+				top: 19px;
+				color: rgba(255, 255, 255, 0.5);
+				font-size: 34px;
+				height: 34px;
+				width: 750px;
+				font-family: 'MontserratSemiBold';
+			}
+			.DownloadResultsButtonStyle {
+				position: fixed;
+				left: 20px;
+				top: 68px;
+				width: 240px;
+				height: 29px;
+				border: 3px solid white;
+				border-radius: 5px;
+				color: white;
+				background-color: #2f4156;
+				line-height: 30px;
+				text-align: center;
+				font-size: 20.5px;
+				font-family: 'MontserratSemiBold';
+			}
+			.DownloadTextVizButtonStyle {
+				position: relative;
+				grid-row-start: 2;
+				grid-column-start: 1;
+				justify-self: center;
+				width: 260px;
+				height: 29px;
+				border: 3px solid white;
+				border-radius: 5px;
+				color: white;
+				background-color: #2f4156;
+				line-height: 30px;
+				text-align: center;
+				font-size: 20.5px;
+				font-family: 'MontserratSemiBold';
+			}
+			.PauseAllButtonStyle {
+				position: relative;
+				grid-row-start: 2;
+				grid-column-start: 1;
+				justify-self: center;
+				left: 285px;
+				width: 260px;
+				height: 29px;
+				border: 3px solid white;
+				border-radius: 5px;
+				color: white;
+				background-color: #2f4156;
+				line-height: 30px;
+				text-align: center;
+				font-size: 20.5px;
+				font-family: 'MontserratSemiBold';
+			}
+			.EndAllButtonStyle {
+				position: relative;
+				grid-row-start: 2;
+				grid-column-start: 1;
+				justify-self: center;
+				left: 570px;
+				width: 260px;
+				height: 29px;
+				border: 3px solid white;
+				border-radius: 5px;
+				color: white;
+				background-color: #2f4156;
+				line-height: 30px;
+				text-align: center;
+				font-size: 20.5px;
+				font-family: 'MontserratSemiBold';
+			}
+			.DownloadRoomcodeButtonStyle {
+				position: relative;
+				grid-row-start: 2;
+				grid-column-start: 1;
+				justify-self: center;
+				width: 350px;
+				height: 29px;
+				border: 3px solid white;
+				border-radius: 5px;
+				color: white;
+				background-color: #2f4156;
+				line-height: 30px;
+				text-align: center;
+				font-size: 20.5px;
+				font-family: 'MontserratSemiBold';
+			}
+			.TeacherCodeInputStyle {
+				position: fixed;
+				right: 20px;
+				top: 20px;
+				width: 222px;
+				height: 28px;
+				background-color: #808080;
+				color: rgb(255,255,255,0.5);
+				font-size: 16.5px;
+				caret-color: white;
+				border: none;
+				outline: none;
+				font-family: 'MontserratMedium';
+			}
+			.TabButtonStyleInactive {
+				position: fixed;
+				width: 148px;
+				height: 46px;
+				border-top-left-radius: 5px;
+				border-top-right-radius: 5px;
+				background-color: rgba(191, 191, 191, 0.25);
+				color: white;
+				text-align: center;
+				line-height: 16px;
+				font-size: 16px;
+				font-family: 'MontserratBold';
+			}
+			.TabButtonStyleActive {
+				position: fixed;
+				width: 148px;
+				height: 46px;
+				border-top-left-radius: 5px;
+				border-top-right-radius: 5px;
+				background-color: #bfbfbf;
+				color: #2f4156;
+				text-align: center;
+				line-height: 16px;
+				font-size: 16px;
+				font-family: 'MontserratBold';
+			}
+			.RoomOverviewFrameStyle {
+				position: relative;
+				left: 17px; 
+				top: 113px; 
+				max-height: 771px;
+				border-top: 3px solid #bfbfbf;
+				overflow-x: hidden;
+				overflow-y: scroll;
+			}
+			.RoomOverviewHolderStyle {
+				display: grid;
+				/*max-height: 771px;*/
+				overflow-x: hidden;
+				overflow-y: scroll;
+				grid-template-columns: 388px 20px 388px 20px 388px auto;
+				grid-template-rows: 5px 33px 5px 362px 20px 362px 20px 362px 20px 362px 20px 362px 20px 362px 20px 362px 20px 362px 20px 362px 20px 362px 20px 362px 20px 362px 20px 362px 20px 362px 20px 362px auto;			
+			}
+			.COConvoFrame {
+				display: none;
+				left: 0px; 
+				top: 0px; 
+				width: 388px; 
+				height: 382px; 
+				background-color: rgba(255, 255, 255, 0.1);
+				grid-template-columns: auto;
+				grid-template-rows: 30px auto;
+			}
+			.COConvoTitleText {
+				display: inherit;
+				left: 144px; 
+				top: 12px; 
+				width: 388px;
+				text-align: center;
+				font-family: MontserratBold; 
+				font-size: 26px; 
+				color: rgba(255, 255, 255, 0.5);
+				grid-row-start: 1;
+				grid-template-columns: 60px 45px 120px 55px 20px 20px auto;
+			}
+			.COConvoActiveLight {
+				position: relative; 
+				top: 6px; 
+				left: 8px; 
+				width: 20px; 
+				height: 20px; 
+				border-radius: 100%; 
+				background-color: #9E9E9E; 
+				grid-column: 2;
+			}
+			.COConvoActiveLightOn {
+				background-color: #60ff5a; 
+			}
+			.COConvoVizHolder {
+				display: grid; 
+				grid-template-columns: auto 348px auto; 
+				grid-template-rows: 5px auto; 
+				grid-row-start: 2;
+			}
+			.COConvoViz {
+				display: grid;
+				grid-column-start: 2;
+				grid-row-start: 2;
+				left: 20px;
+				top: 80px;
+				width: 350px !important;
+				height: 340px !important;
+				background-color: #21344B;
+				border-radius: 10px;
+				contain: strict;
+			}
+			.COConvoRoundText {
+				position: relative;
+				top: 5px;
+				padding-left: 20px;
+				font-family: MontserratSemiBold;
+				font-size: 17.5px;
+				color: rgba(255,255,255,0.5);
+				grid-row-start: 3;
+				grid-column-start: 1;
+			}
+			.COConvoWinnerText {
+				position: relative;
+				padding-left: 20px;
+				top: 5px;
+				font-family: MontserratSemiBold;
+				font-size: 17.5px;
+				color: rgba(255,255,255,0.5);
+				grid-row-start: 3;
+				grid-column-start: 1;
+			}
+			.COConvoWinnerAText {
+				position: relative;
+				left: 114px;
+				top: 5px;
+				font-family: MontserratSemiBold;
+				font-size: 17.5px;
+				color: rgba(255, 195, 0, 0.5);
+				grid-row-start: 3;
+				grid-column-start: 1;
+			}
+			.COConvoWinnerBText {
+				position: relative;
+				left: 144px;
+				top: 5px;
+				font-family: MontserratSemiBold;
+				font-size: 17.5px;
+				color: rgba(255, 95, 87,0.5);
+				grid-row-start: 3;
+				grid-column-start: 1;
+			}
+			.COConvoWinnerCText {
+				position: relative;
+				left: 144px;
+				top: 5px;
+				font-family: MontserratSemiBold;
+				font-size: 17.5px;
+				color: rgba(25,180,255,0.5);
+				grid-row-start: 3;
+				grid-column-start: 1;
+			}
+			.COBioDivBG {
+				position: relative;
+				width: 348px;
+				height: 34px;
+				background-color:rgba(255, 255, 255, 0.1);
+				border-radius: 5px;
+				grid-row-start: 5;
+				grid-column-start: 1;
+				justify-self: center;
+			}
+			.COBioDivFG {
+				left: 20px;
+				top: 308px;
+				width: 348px;
+				height: 34px;
+				background-color: #91EF91;
+				border-radius: 5px;
+			}
+			.COBioDivText {
+				left: 125px;
+				padding-top: 5px;
+				width: 348px;
+				text-align: center;
+				font-family: MontserratSemiBold;
+				font-size: 18px;
+				color: rgba(0, 0, 0, 0.75);
+			}
+			.RoomCodeFrameStyle {
+				display: grid;
+				position: fixed;
+				left: 20px;
+				right: 20px;
+				top: 113px;
+				height: 100%;
+				border-top: 3px solid #bfbfbf;
+				overflow-x: hidden;
+				overflow-y: auto;
+				grid-template-columns: auto 651px auto;
+				grid-template-rows: 15px 746px auto;			
+			}
+			.CCBackingFrameStyle {
+				display: grid;
+				grid-column-start: 2;
+				grid-row-start: 2;
+				min-width: 651px;
+				height: 746px;
+				border-radius: 5px;
+				background-color: rgba(255, 255, 255, 0.1);
+				grid-template-columns: 78px 88px 319px 88px 78px;
+				grid-template-rows: 50px 28px 15px 35px 100px 18px 14px 408px auto;
+			}
+			.TextStyle1 {
+				color: rgba(255, 255, 255, 0.5);
+				font-size: 26px;
+				font-family: 'MontserratBold';
+			}
+			.TextStyle2 {
+				color: rgba(255, 255, 255, 0.5);
+				font-size: 23.5px;
+				font-family: 'MontserratBold';
+			}
+			.CCNumStudentsInputStyle {
+				width: 36px;
+				height: 28px;
+				background-color: #808080;
+				color: rgb(255,255,255,0.5);
+				font-size: 16.5px;
+				caret-color: white;
+				outline: none;
+				font-family: 'MontserratSemiBold';
+				border: none;
+				text-align: center;
+			}
+			.CCGenerateRoomcodeButtonStyle {
+				width: 318px;
+				height: 35px;
+				border: 3px solid white;
+				border-radius: 5px;
+				color: white;
+				background-color: #2f4156;
+				line-height: 35px;
+				text-align: center;
+				font-size: 20.5px;
+				font-family: 'MontserratSemiBold';
+				justify-self: center;
+			}
+			.CCRoomcodeListboxStyle {
+				width: 495px;
+				height: 408px;
+				border: 3px solid #bfbfbf;
+				overflow-x: hidden;
+				overflow-y: auto;
+			}
+			.listboxRowHolderClass {
+				width: 489px;
+				height: 36px;
+			}
+			.rowOddLeftStyle {
+				display: table-cell;
+				width: 245px;
+				height: 36px;
+				background-color: #818181;
+				color: #404040;
+				line-height: 36px;
+				text-align: center;
+				font-size: 16px;
+				font-family: 'MontserratMedium';			
+			}
+			.rowOddRightStyle {
+				display: table-cell;
+				width: 244px;
+				height: 36px;
+				background-color: #606060;
+				color: #FFF;
+				line-height: 36px;
+				text-align: center;
+				font-size: 16px;
+				font-family: 'MontserratMedium';			
+			}
+			.rowEvenLeftStyle {
+				display: table-cell;
+				width: 245px;
+				height: 36px;
+				background-color: #666666;
+				color: #404040;
+				line-height: 36px;
+				text-align: center;
+				font-size: 16px;
+				font-family: 'MontserratMedium';			
+			}
+			.rowEvenRightStyle {
+				display: table-cell;
+				width: 244px;
+				height: 36px;
+				background-color: #4C4C4C;
+				color: #FFF;
+				line-height: 36px;
+				text-align: center;
+				font-size: 16px;
+				font-family: 'MontserratMedium';			
+			}
+			::placeholder {
+				color: rgba(255, 255, 255, 0.5);
+			}
+			.EndAllConfirmationDialog {
+				grid-row: 1/34;
+				grid-column: 1/7;
+				display: grid;
+				background-color: rgb(95 112 133 / 80%);
+				width: 100%;
+				height: 100%;
+				z-index: 100;
+			}
+			.EndAllDlgText {
+				text-align: center;
+				font-family: MontserratSemiBold;
+				font-size: 48px;
+				color: white;
+				position: absolute;
+				top: 200px;
+				width: 100%;
+			}
+			.EndAllDlgButtonHolder {
+				position: absolute;
+				top: 330px;
+				text-align: center;
+				width: 100%;
+			}
+			.EndAllDlgYes {
+				position: absolute;
+				color: white;
+				font-family: MontserratSemiBold;
+				font-size: 32px;
+				background-color: #2f4156;
+				border: 3px solid white;
+				border-radius: 5px;
+				width: 100px;
+				height: 40px;
+				left: 40%;
+			}
+			.EndAllDlgYes:hover {
+				background-color: orange;
+			}
+			.EndAllDlgNo {
+				position: absolute;
+				color: white;
+				font-family: MontserratSemiBold;
+				font-size: 32px;
+				background-color: #2f4156;
+				border: 3px solid white;
+				border-radius: 5px;
+				width: 100px;
+				height: 40px;
+				right: 40%;
+			}
+			.EndAllDlgNo:hover {
+				background-color: orange;
+			}
+		</style>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/phaser.js"></script>
+		<script src="js/textviz.js"></script>
+		<script src="js/networkManager.js"></script>
+		<script src="js/main.js"></script>
+	</head>
+	<body>
+		<!--These are to ensure these fonts work with Phaser3 -->
+		<div style="font-family: 'MontserratRegular'; position:absolute; left:-1000px; visibility:hidden;">.</div>
+		<div style="font-family: 'MontserratMedium'; position:absolute; left:-1000px; visibility:hidden;">.</div>
+		<div style="font-family: 'MontserratSemiBold'; position:absolute; left:-1000px; visibility:hidden;">.</div>
+		<div style="font-family: 'MontserratBold'; position:absolute; left:-1000px; visibility:hidden;">.</div>
+		<div style="font-family: 'icomoon'; position:absolute; left:-1000px; visibility:hidden;">.</div>
+		<!--End font shenanigans-->
+		<div id="mainFrame" class="MainFrameStyle">
+			<div id="LFLTitle" class="TitleText">Libra: Teacher Dashboard</div>
+			<input type="text" id="TeacherCodeInput" class="TeacherCodeInputStyle" placeholder="Enter Teacher Code here..." value="" minlength="2" maxlength="2" />
+			<div id="RoomOverviewButton" style="top: 68px; right: 168px; padding-top: 15px; height: 31px;" class="TabButtonStyleInactive" onclick="ShowRoomOverview();">Room Overview</div>
+			<div id="RoomCodeButton" style="top: 68px; right: 20px; padding-top: 6px; height: 40px;" class="TabButtonStyleActive" onclick="ShowTab('RoomCode');">Create Roomcodes</div>
+
+			<div id="RoomOverviewFrame" class="RoomOverviewFrameStyle" style="display: none;">
+				<div id="cofHolder" class="RoomOverviewHolderStyle">
+					<div id="EndAllConfirmationDialog" class="EndAllConfirmationDialog" style="display: none;">
+						<div class="EndAllDlgText">Are you sure you want to end all sessions?</div>
+						<div class="EndAllDlgButtonHolder">
+							<div id="EndAllDlgYesBtn" class="EndAllDlgYes" onclick="EndAll();">Yes</div>
+							<div id="EndAllDlgNoBtn" class="EndAllDlgNo" onclick="CancelEndAll();">No</div>
+						</div>
+					</div>
+					<div id="DownloadTextVizButton" class="DownloadTextVizButtonStyle" onclick="DownloadResultsFile();" >DOWNLOAD RESULTS</div>
+					<div id="PauseAllButton" class="PauseAllButtonStyle" onclick="PauseAll();" >PAUSE ALL</div>
+					<div id="EndAllButton" class="EndAllButtonStyle" onclick="EndAllClicked();" >END ALL</div>
+					<div id="cofSlot1" class="COConvoFrame" style="grid-row: 4; grid-column: 1;">
+						<div id="cofSlot1Title" class="COConvoTitleText">
+							<span id='cofSlot1Active' class='COConvoActiveLight'></span>
+							<span id='cofSlot1Label' style='grid-column: 3; text-align: left;'>Room 1</span>
+							<span id='cofSlot1Session' style='grid-column: 4; text-align: left; position: relative; left: -15px;'>- 1</span>
+							<span id='cofSlot1Prev' style='grid-column: 5;' onclick='ViewPrevTextViz(1);'>&lt;</span>
+							<span id='cofSlot1Next' style='grid-column: 6;' onclick='ViewNextTextViz(1);'>&gt;</span>
+						</div>
+						<div class='COConvoVizHolder'><div id="cofSlot1ConvoViz" class="COConvoViz"></div></div>
+					</div>
+					<div id="cofSlot2" class="COConvoFrame" style="grid-row: 4; grid-column: 3;">
+						<div id="cofSlot2Title" class="COConvoTitleText">
+							<span id='cofSlot2Active' class='COConvoActiveLight'></span>
+							<span id='cofSlot2Label' style='grid-column: 3; text-align: left;'>Room 2</span>
+							<span id='cofSlot2Session' style='grid-column: 4; text-align: left; position: relative; left: -15px;'>- 1</span>
+							<span id='cofSlot2Prev' style='grid-column: 5;' onclick='ViewPrevTextViz(2);'>&lt;</span>
+							<span id='cofSlot2Next' style='grid-column: 6;' onclick='ViewNextTextViz(2);'>&gt;</span>
+						</div>
+						<div class='COConvoVizHolder'><div id="cofSlot2ConvoViz" class="COConvoViz"></div></div>
+					</div>
+					<div id="cofSlot3" class="COConvoFrame" style="grid-row: 4; grid-column: 5;">
+						<div id="cofSlot3Title" class="COConvoTitleText">
+							<span id='cofSlot3Active' class='COConvoActiveLight'></span>
+							<span id='cofSlot3Label' style='grid-column: 3; text-align: left;'>Room 3</span>
+							<span id='cofSlot3Session' style='grid-column: 4; text-align: left; position: relative; left: -15px;'>- 1</span>
+							<span id='cofSlot3Prev' style='grid-column: 5;' onclick='ViewPrevTextViz(3);'>&lt;</span>
+							<span id='cofSlot3Next' style='grid-column: 6;' onclick='ViewNextTextViz(3);'>&gt;</span>
+						</div>
+						<div class='COConvoVizHolder'><div id="cofSlot3ConvoViz" class="COConvoViz"></div></div>
+					</div>
+					<div id="cofSlot4" class="COConvoFrame" style="grid-row: 6; grid-column: 1;">
+						<div id="cofSlot4Title" class="COConvoTitleText">
+							<span id='cofSlot4Active' class='COConvoActiveLight'></span>
+							<span id='cofSlot4Label' style='grid-column: 3; text-align: left;'>Room 4</span>
+							<span id='cofSlot4Session' style='grid-column: 4; text-align: left; position: relative; left: -15px;'>- 1</span>
+							<span id='cofSlot4Prev' style='grid-column: 5;' onclick='ViewPrevTextViz(4);'>&lt;</span>
+							<span id='cofSlot4Next' style='grid-column: 6;' onclick='ViewNextTextViz(4);'>&gt;</span>
+						</div>
+						<div class='COConvoVizHolder'><div id="cofSlot4ConvoViz" class="COConvoViz"></div></div>
+					</div>
+					<div id="cofSlot5" class="COConvoFrame" style="grid-row: 6; grid-column: 3;">
+						<div id="cofSlot5Title" class="COConvoTitleText">
+							<span id='cofSlot5Active' class='COConvoActiveLight'></span>
+							<span id='cofSlot5Label' style='grid-column: 3; text-align: left;'>Room 5</span>
+							<span id='cofSlot5Session' style='grid-column: 4; text-align: left; position: relative; left: -15px;'>- 1</span>
+							<span id='cofSlot5Prev' style='grid-column: 5;' onclick='ViewPrevTextViz(5);'>&lt;</span>
+							<span id='cofSlot5Next' style='grid-column: 6;' onclick='ViewNextTextViz(5);'>&gt;</span>
+						</div>
+						<div class='COConvoVizHolder'><div id="cofSlot5ConvoViz" class="COConvoViz"></div></div>
+					</div>
+					<div id="cofSlot6" class="COConvoFrame" style="grid-row: 6; grid-column: 5;">
+						<div id="cofSlot6Title" class="COConvoTitleText">
+							<span id='cofSlot6Active' class='COConvoActiveLight'></span>
+							<span id='cofSlot6Label' style='grid-column: 3; text-align: left;'>Room 6</span>
+							<span id='cofSlot6Session' style='grid-column: 4; text-align: left; position: relative; left: -15px;'>- 1</span>
+							<span id='cofSlot6Prev' style='grid-column: 5;' onclick='ViewPrevTextViz(6);'>&lt;</span>
+							<span id='cofSlot6Next' style='grid-column: 6;' onclick='ViewNextTextViz(6);'>&gt;</span>
+						</div>
+						<div class='COConvoVizHolder'><div id="cofSlot6ConvoViz" class="COConvoViz"></div></div>
+					</div>
+					<div id="cofSlot7" class="COConvoFrame" style="grid-row: 8; grid-column: 1;">
+						<div id="cofSlot7Title" class="COConvoTitleText">
+							<span id='cofSlot7Active' class='COConvoActiveLight'></span>
+							<span id='cofSlot7Label' style='grid-column: 3; text-align: left;'>Room 7</span>
+							<span id='cofSlot7Session' style='grid-column: 4; text-align: left; position: relative; left: -15px;'>- 1</span>
+							<span id='cofSlot7Prev' style='grid-column: 5;' onclick='ViewPrevTextViz(7);'>&lt;</span>
+							<span id='cofSlot7Next' style='grid-column: 6;' onclick='ViewNextTextViz(7);'>&gt;</span>
+						</div>
+						<div class='COConvoVizHolder'><div id="cofSlot7ConvoViz" class="COConvoViz"></div></div>
+					</div>
+					<div id="cofSlot8" class="COConvoFrame" style="grid-row: 8; grid-column: 3;">
+						<div id="cofSlot8Title" class="COConvoTitleText">
+							<span id='cofSlot8Active' class='COConvoActiveLight'></span>
+							<span id='cofSlot8Label' style='grid-column: 3; text-align: left;'>Room 8</span>
+							<span id='cofSlot8Session' style='grid-column: 4; text-align: left; position: relative; left: -15px;'>- 1</span>
+							<span id='cofSlot8Prev' style='grid-column: 5;' onclick='ViewPrevTextViz(8);'>&lt;</span>
+							<span id='cofSlot8Next' style='grid-column: 6;' onclick='ViewNextTextViz(8);'>&gt;</span>
+						</div>
+						<div class='COConvoVizHolder'><div id="cofSlot8ConvoViz" class="COConvoViz"></div></div>
+					</div>
+					<div id="cofSlot9" class="COConvoFrame" style="grid-row: 8; grid-column: 5;">
+						<div id="cofSlot9Title" class="COConvoTitleText">
+							<span id='cofSlot9Active' class='COConvoActiveLight'></span>
+							<span id='cofSlot9Label' style='grid-column: 3; text-align: left;'>Room 9</span>
+							<span id='cofSlot9Session' style='grid-column: 4; text-align: left; position: relative; left: -15px;'>- 1</span>
+							<span id='cofSlot9Prev' style='grid-column: 5;' onclick='ViewPrevTextViz(9);'>&lt;</span>
+							<span id='cofSlot9Next' style='grid-column: 6;' onclick='ViewNextTextViz(9);'>&gt;</span>
+						</div>
+						<div class='COConvoVizHolder'><div id="cofSlot9ConvoViz" class="COConvoViz"></div></div>
+					</div>
+					<div id="cofSlot10" class="COConvoFrame" style="grid-row: 10; grid-column: 1;">
+						<div id="cofSlot10Title" class="COConvoTitleText">
+							<span id='cofSlot10Active' class='COConvoActiveLight'></span>
+							<span id='cofSlot10Label' style='grid-column: 3; text-align: left;'>Room 10</span>
+							<span id='cofSlot10Session' style='grid-column: 4; text-align: left; position: relative; left: 0px;'>- 1</span>
+							<span id='cofSlot10Prev' style='grid-column: 5;' onclick='ViewPrevTextViz(10);'>&lt;</span>
+							<span id='cofSlot10Next' style='grid-column: 6;' onclick='ViewNextTextViz(10);'>&gt;</span>
+						</div>
+						<div class='COConvoVizHolder'><div id="cofSlot10ConvoViz" class="COConvoViz"></div></div>
+					</div>
+					<div id="cofSlot11" class="COConvoFrame" style="grid-row: 10; grid-column: 3;">
+						<div id="cofSlot11Title" class="COConvoTitleText">
+							<span id='cofSlot11Active' class='COConvoActiveLight'></span>
+							<span id='cofSlot11Label' style='grid-column: 3; text-align: left;'>Room 11</span>
+							<span id='cofSlot11Session' style='grid-column: 4; text-align: left; position: relative; left: 0px;'>- 1</span>
+							<span id='cofSlot11Prev' style='grid-column: 5;' onclick='ViewPrevTextViz(11);'>&lt;</span>
+							<span id='cofSlot11Next' style='grid-column: 6;' onclick='ViewNextTextViz(11);'>&gt;</span>
+						</div>
+						<div class='COConvoVizHolder'><div id="cofSlot11ConvoViz" class="COConvoViz"></div></div>
+					</div>
+					<div id="cofSlot12" class="COConvoFrame" style="grid-row: 10; grid-column: 5;">
+						<div id="cofSlot12Title" class="COConvoTitleText">
+							<span id='cofSlot12Active' class='COConvoActiveLight'></span>
+							<span id='cofSlot12Label' style='grid-column: 3; text-align: left;'>Room 12</span>
+							<span id='cofSlot12Session' style='grid-column: 4; text-align: left; position: relative; left: 0px;'>- 1</span>
+							<span id='cofSlot12Prev' style='grid-column: 5;' onclick='ViewPrevTextViz(12);'>&lt;</span>
+							<span id='cofSlot12Next' style='grid-column: 6;' onclick='ViewNextTextViz(12);'>&gt;</span>
+						</div>
+						<div class='COConvoVizHolder'><div id="cofSlot12ConvoViz" class="COConvoViz"></div></div>
+					</div>
+					<div id="cofSlot13" class="COConvoFrame" style="grid-row: 12; grid-column: 1;">
+						<div id="cofSlot13Title" class="COConvoTitleText">
+							<span id='cofSlot13Active' class='COConvoActiveLight'></span>
+							<span id='cofSlot13Label' style='grid-column: 3; text-align: left;'>Room 13</span>
+							<span id='cofSlot13Session' style='grid-column: 4; text-align: left; position: relative; left: 0px;'>- 1</span>
+							<span id='cofSlot13Prev' style='grid-column: 5;' onclick='ViewPrevTextViz(13);'>&lt;</span>
+							<span id='cofSlot13Next' style='grid-column: 6;' onclick='ViewNextTextViz(13);'>&gt;</span>
+						</div>
+						<div class='COConvoVizHolder'><div id="cofSlot13ConvoViz" class="COConvoViz"></div></div>
+					</div>
+					<div id="cofSlot14" class="COConvoFrame" style="grid-row: 12; grid-column: 3;">
+						<div id="cofSlot14Title" class="COConvoTitleText">
+							<span id='cofSlot14Active' class='COConvoActiveLight'></span>
+							<span id='cofSlot14Label' style='grid-column: 3; text-align: left;'>Room 14</span>
+							<span id='cofSlot14Session' style='grid-column: 4; text-align: left; position: relative; left: 0px;'>- 1</span>
+							<span id='cofSlot14Prev' style='grid-column: 5;' onclick='ViewPrevTextViz(14);'>&lt;</span>
+							<span id='cofSlot14Next' style='grid-column: 6;' onclick='ViewNextTextViz(14);'>&gt;</span>
+						</div>
+						<div class='COConvoVizHolder'><div id="cofSlot14ConvoViz" class="COConvoViz"></div></div>
+					</div>
+					<div id="cofSlot15" class="COConvoFrame" style="grid-row: 12; grid-column: 5;">
+						<div id="cofSlot15Title" class="COConvoTitleText">
+							<span id='cofSlot15Active' class='COConvoActiveLight'></span>
+							<span id='cofSlot15Label' style='grid-column: 3; text-align: left;'>Room 15</span>
+							<span id='cofSlot15Session' style='grid-column: 4; text-align: left; position: relative; left: 0px;'>- 1</span>
+							<span id='cofSlot15Prev' style='grid-column: 5;' onclick='ViewPrevTextViz(15);'>&lt;</span>
+							<span id='cofSlot15Next' style='grid-column: 6;' onclick='ViewNextTextViz(15);'>&gt;</span>
+						</div>
+						<div class='COConvoVizHolder'><div id="cofSlot15ConvoViz" class="COConvoViz"></div></div>
+					</div>
+				</div>
+			</div>
+			<div id="RoomCodeFrame" class="RoomCodeFrameStyle">
+				<div id="DownloadResultsButton" class="DownloadRoomcodeButtonStyle" onclick="DownloadRoomcodeList();" >DOWNLOAD ROOMCODE LIST</div>
+				<div id="CCBackingFrame" class="CCBackingFrameStyle">
+					<div id="CCNumStudentsText" style="display: inherit; grid-column-start: 3; grid-row-start: 2;" class="TextStyle1">Number of Students:</div>
+					<input type="number" min="0" max="49" id="CCNumStudentsInput" style="display: inherit; position: relative; grid-column-start: 4; grid-row-start: 2; left: -25px;" class="CCNumStudentsInputStyle" value="3" />
+
+					<div id="CCGenerateRoomcodeButton" style="display: inherit; grid-column-start: 3; grid-row-start: 4;" class="CCGenerateRoomcodeButtonStyle" onclick="GenerateRoomcodes();" >GENERATE ROOMCODES</div>
+
+					<div id="CCRoomCodeColumnText" style="display: inherit; position: relative; grid-column-start: 3; grid-row-start: 6; left: -30px;" class="TextStyle2">RoomCode</div>
+					<div id="CCTeamColumnText" style="display: inherit; position: relative; grid-column-start: 4; grid-row-start: 6; left: -75px;" class="TextStyle2">Team</div>
+
+					<div id="CCRoomcodeListbox" style="display: block; grid-column-start: 2; grid-row-start: 8;" class="CCRoomcodeListboxStyle" >
+						<!-- dynamic frame filled with roomcodes of groups of 3 
+						// (or 2, if the last group only contains 2, or last two groups of 2 if the last group is 1)
+						// Divided into two columns, first being roomcode and second being roomNum - red/blue/yellow player designation
+						// Scrollable-->
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

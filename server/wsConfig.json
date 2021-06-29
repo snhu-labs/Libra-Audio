@@ -1,0 +1,18 @@
+{
+	"aws": {
+		"awsID": "<aws access key id for programmatic access to aws>",
+		"awsSecret": "<aws secret key for programmatic access to aws>",
+		"awsRegion": "aws region that s3/transcribe are in",
+		"awsS3UploadBase": "<base bucket/path for uploads>",
+		"awsTranscriptArn": "<arn allowing access to transcribe/s3"
+	},
+	"wsServer": {
+		"internalIP": "<internal ip of server>",
+		"acceptableOrigins": [
+			"<list of urls of approved origins to process requests from- usually the same domain as the website>"
+		],
+		"port": 9701,
+		"maxReceivedFrameSize": 256000,
+		"maxReceivedMessageSize": 10000000
+	}
+}

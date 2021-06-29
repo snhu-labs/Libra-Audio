@@ -1,0 +1,282 @@
+<meta http-equiv="pragma" content="no-cache" />
+<style>
+    :root {
+        --ColorAActive: #ffc300;
+        --ColorBActive: #19b4ff;
+        --ColorCActive: #ff5f57;
+        --ColorNActive: #2f4156;
+        --FrostColor: #8F8F8F;
+        --FadedText: rgba(255, 255, 255, 0.25);
+        --FrostText: white;
+    }
+    .vizHolder {
+        position: absolute; 
+        left: 0px; 
+        top: 0px; 
+        width: 400px; 
+        height: 390px; 
+    }
+    .vizSVGHolder {
+        position: absolute; 
+        left: 100px; 
+        top: 50px; 
+        width: 200px; 
+        height: 200px;
+    }
+    .vizFrost {
+        width: 350px; 
+        height: 322px; 
+        background-color: var(--FrostColor);
+        border-radius: 8px;
+        opacity: 0.75;
+    }
+    .frostText {
+        position: absolute;
+        top: 33%;
+        width: 100%;
+        text-align: center;
+        line-height: 30px;
+        font-family: MontserratBold;
+        font-size: 30px;
+        color: var(--FrostText);
+    }
+    .communicationFeedback {
+        position: absolute;
+        top: 5px;
+        width: 100%;
+        font-family: MontserratSemiBold;
+        font-size: 18px;
+        font-weight: 600;
+        text-align: center;
+        color: var(--FadedText);
+    }
+    .textVizPlayerA {
+        position: absolute;
+        top: 35px;
+        left: 0px;
+        width: 50%;
+        font-family: MontserratRegular;
+        font-size: 18px;
+        font-weight: 600;
+        text-align: center;
+        color: var(--ColorAActive);
+    }
+    .textVizPlayerB {
+        position: absolute;
+        top: 35px;
+        right: 0px;
+        width: 50%;
+        font-family: MontserratRegular;
+        font-size: 18px;
+        font-weight: 600;
+        text-align: center;
+        color: var(--ColorBActive);
+    }
+    .textVizPlayerC {
+        position: absolute;
+        top: 250px;
+        width: 100%;
+        font-family: MontserratRegular;
+        font-size: 18px;
+        font-weight: 600;
+        text-align: center;
+        color: var(--ColorCActive);
+    }
+    .orderLabel {
+        position: absolute;
+        left: 20px;
+        top: 280px;
+        font-family: MontserratSemiBold;
+        font-size: 16px;
+        color: var(--FadedText);
+    }
+    .orderBarHolder {
+        position: absolute;
+        display: grid;
+        left: 20px;
+        top: 300px;
+        width: 360px;
+        height: 25px;
+        background-color: var(--ColorNActive);
+        border-radius: 10px;
+        grid-auto-columns: 4px;
+        grid-gap: 1px;
+        grid-template-rows: 100%;
+        grid-auto-flow: column;
+    }
+    .pipA {
+        display: grid;
+        border-radius: 2px;
+        background-color: var(--ColorAActive);
+    }
+    .pipB {
+        display: grid;
+        border-radius: 2px;
+        background-color: var(--ColorBActive);
+    }
+    .pipC {
+        display: grid;
+        border-radius: 2px;
+        background-color: var(--ColorCActive);
+    }
+    .numberOfMessages {
+        position: absolute;
+        left: 20px;
+        top: 325px;
+        width: 100%;
+        font-family: MontserratSemiBold;
+        font-size: 16px;
+        color: var(--FadedText);
+        line-height: 20px;
+    }
+    .horizontalBarLabels {
+        position: absolute;
+        display: inline-flex;
+        left: 20px;
+        top: 368px;
+        width: 360px;
+        height: 20px;
+    }
+    .horizontalLabelPlayerA {
+        width: 25%;
+        min-width: 10%;
+        color: var(--ColorAActive);
+        font-family: MontserratBold;
+        font-size: 14px;
+        text-align: center;
+        line-height: 22px;
+    }
+    .horizontalLabelPlayerB {
+        width: 25%;
+        min-width: 10%;
+        color: var(--ColorBActive);
+        font-family: MontserratBold;
+        font-size: 14px;
+        text-align: center;
+        line-height: 22px;
+    }
+    .horizontalLabelPlayerC {
+        width: 25%;
+        min-width: 10%;
+        color: var(--ColorCActive);
+        font-family: MontserratBold;
+        font-size: 14px;
+        text-align: center;
+        line-height: 22px;
+    }
+    .horizontalLabelNone {
+        width: 25%;
+        min-width: 10%;
+        color: var(--ColorNActive);
+        font-family: MontserratBold;
+        font-size: 16px;
+        text-align: center;
+        line-height: 24px;
+    }
+    .horizontalVizBarHolder {
+        position: absolute;
+        display: inline-flex;
+        left: 20px;
+        top: 345px;
+        width: 360px;
+        height: 25px;
+        border-radius: 5px;
+    }
+    .horizontalVizPlayerA {
+        width: 25%;
+        background-color: var(--ColorAActive);
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+    .horizontalVizPlayerB {
+        width: 25%;
+        background-color: var(--ColorBActive);
+    }
+    .horizontalVizPlayerC {
+        width: 25%;
+        background-color: var(--ColorCActive);
+    }
+    .horizontalVizNone {
+        width: 25%;
+        background-color: var(--ColorNActive);
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        color: var(--ColorNActive);
+        font-family: MontserratBold;
+        font-size: 16px;
+        text-align: center;
+        line-height: 48px;
+    }
+    .arcAStroke {
+        fill: none;
+        stroke: var(--ColorAActive);
+        stroke-miterlimit: 10px;
+        pointer-events: none;
+    }
+    .arcBStroke {
+        fill: none;
+        stroke: var(--ColorBActive);
+        stroke-miterlimit: 10px;
+        pointer-events: none;
+    }
+    .arcCStroke {
+        fill: none;
+        stroke: var(--ColorCActive);
+        stroke-miterlimit: 10px;
+        pointer-events: none;
+    }
+    .thickStroke {
+        stroke-width: 30px;
+    }
+</style>
+<div id='vizHolder' class='vizHolder'>
+    <div class='communicationFeedback'>COMMUNICATION FEEDBACK</div>
+
+    <svg class='vizSVGHolder' >
+        <g transform="scale(0.4) translate(-87, -115)">
+            <path id='ArcA' d="M 138.38 454.39 C 111.15 392.51 114.32 321.47 146.95 262.26 C 179.58 203.05 237.95 162.43 304.81 152.4 L 304.81 152.4 C 237.95 162.43 179.58 203.05 146.95 262.26 C 114.32 321.47 111.15 392.51 138.38 454.39 Z" class="arcAStroke thickStroke" />
+            <path id='ArcB' d="M 138.38 454.39 C 111.15 392.51 114.32 321.47 146.95 262.26 C 179.58 203.05 237.95 162.43 304.81 152.4 L 304.81 152.4 C 237.95 162.43 179.58 203.05 146.95 262.26 C 114.32 321.47 111.15 392.51 138.38 454.39 Z" transform="translate(337,0)scale(-1,1)translate(-337,0)" class="arcBStroke thickStroke" />
+            <path id='ArcC' d="M 138.38 454.39 C 111.15 392.51 114.32 321.47 146.95 262.26 C 179.58 203.05 237.95 162.43 304.81 152.4 L 304.81 152.4 C 237.95 162.43 179.58 203.05 146.95 262.26 C 114.32 321.47 111.15 392.51 138.38 454.39 Z" transform="rotate(240,337,367)" class="arcCStroke thickStroke" />
+
+            <path id='ArcAB' d="M 264.95 92.09 C 286.28 64.82 320.88 51.48 354.99 57.37 C 389.11 63.26 417.23 87.43 428.18 120.27 L 428.18 120.27 C 417.23 87.43 389.11 63.26 354.99 57.37 C 320.88 51.48 286.28 64.82 264.95 92.09 Z" transform="rotate(180,339,150)" class="arcAStroke" />
+            <path id='TriAB' d="M 262.25 0.5 L 263.25 1 L 262.25 1.5 Z"  transform="rotate(309,262.75,1) translate(-60, 247)" class="arcAStroke" />
+            <path id='ArcAC' d="M 164.95 628.2 C 112.65 633.63 61.33 611.19 29.82 569.09 C -1.69 527 -8.77 471.44 11.17 422.79 L 11.17 422.79 C -8.77 471.44 -1.69 527 29.82 569.09 C 61.33 611.19 112.65 633.63 164.95 628.2 Z" transform="rotate(180,149.5,479.5)" class="arcAStroke" />
+            <path id='TriAC' d="M 135.85 331 L 136.85 331.5 L 135.85 332 Z" transform="rotate(112,136.35,331.5) translate(139, -217)" class="arcAStroke" />
+
+            <path id='ArcBA' d="M 203.64 88.71 C 225.57 39.91 271.91 6.56 325.15 1.24 C 378.38 -4.08 430.4 19.46 461.55 62.96 L 461.55 62.96 C 430.4 19.46 378.38 -4.08 325.15 1.24 C 271.91 6.56 225.57 39.91 203.64 88.71 Z" transform="rotate(180,340,150)" class="arcBStroke" />
+            <path id='TriBA' d="M 66.3 29.5 L 67.3 30 L 66.3 30.5 Z" transform="rotate(237,66.8,30) translate(-251, 14)" class="arcBStroke" />
+            <path id='ArcBC' d="M 614.62 440.7 C 628.65 471.67 624.87 507.81 604.72 535.2 C 584.58 562.58 551.21 576.96 517.47 572.79 L 517.47 572.79 C 551.21 576.96 584.58 562.58 604.72 535.2 C 624.87 507.81 628.65 471.67 614.62 440.7 Z" transform="rotate(180,529,479.5)" class="arcBStroke" />
+            <path id='TriBC' d="M 292.45 313 L 293.45 313.5 L 292.45 314 Z" transform="rotate(66,292.95,313.5) translate(253, -54)" class="arcBStroke"/>
+
+            <path id='ArcCA' d="M 146.87 573.45 C 111.09 572.26 79.1 550.85 64.35 518.24 C 49.6 485.62 54.65 447.47 77.38 419.81 L 77.38 419.81 C 54.65 447.47 49.6 485.62 64.35 518.24 C 79.1 550.85 111.09 572.26 146.87 573.45 Z" transform="rotate(180,150,479.5)" class="arcCStroke" />
+            <path id='TriCA' d="M 358.65 124.85 L 359.65 125.35 L 358.65 125.85 Z" transform="rotate(352,359.15,125.35) translate(125, 225)" class="arcCStroke" />
+            <path id='ArcCB' d="M 654.99 397.48 C 683.06 440.24 687.31 494.39 666.26 541.02 C 645.21 587.64 601.78 620.26 551.14 627.5 L 551.14 627.5 C 601.78 620.26 645.21 587.64 666.26 541.02 C 687.31 494.39 683.06 440.24 654.99 397.48 Z" transform="rotate(180,530,479.5)" class="arcCStroke" />
+            <path id='TriCB' d="M 0.28 179.07 L 1.28 179.57 L 0.28 180.07 Z" transform="rotate(181,0.78,179.57) translate(-151, -203)" class="arcCStroke" />
+        </g>
+    </svg>
+
+    <div id='textVizPlayerAName' class='textVizPlayerA'>Player A</div>
+    <div id='textVizPlayerBName' class='textVizPlayerB'>Player B</div>
+    <div id='textVizPlayerCName' class='textVizPlayerC'>Player C</div>
+
+    <div class='orderLabel unselectable'>ORDER OF MESSAGES</div>
+    <div id='orderBarHolder' class='orderBarHolder'>
+        <!-- Dynamically Generated Content -->
+    </div>
+
+    <div class='numberOfMessages' >PROPORTION OF TIME SPENT TALKING</div>
+    <div class='horizontalVizBarHolder'>
+        <div id='horizontalVizPlayerA' class='horizontalVizPlayerA'></div>
+        <div id='horizontalVizPlayerB' class='horizontalVizPlayerB'></div>
+        <div id='horizontalVizPlayerC' class='horizontalVizPlayerC'></div>
+        <div id='horizontalVizNone' class='horizontalVizNone'></div>
+    </div>
+    <div class='horizontalBarLabels'>
+        <div id='horizontalLabelPlayerA' class='horizontalLabelPlayerA'>25%</div>
+        <div id='horizontalLabelPlayerB' class='horizontalLabelPlayerB'>25%</div>
+        <div id='horizontalLabelPlayerC' class='horizontalLabelPlayerC'>25%</div>
+        <div id='horizontalLabelNone' class='horizontalLabelNone'>25%</div>
+    </div>
+    <div id='vizFrost' class='vizFrost' style='display: none;'><span class='frostText'>Visualization paused until team member rejoins.</span></div>
+</div>
+
